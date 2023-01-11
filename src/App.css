@@ -48,7 +48,7 @@
   font-weight: bold;
 }
 
-input, button, .list-item {
+input, button, .list-item, .message-container p {
   padding: 5px 10px;
   border-radius: 5px;
   font-size: larger;
@@ -74,8 +74,23 @@ form {
   color: white;
 }
 
-.list-container {
+.list-container, .message-container {
   margin: auto;
   margin-top: 4rem;
   width: 20rem;
 }
+
+.message-container {
+  background-color: crimson;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  visibility: hidden;
+}
+
+.show-message {
+  visibility: visible;
+}
+
