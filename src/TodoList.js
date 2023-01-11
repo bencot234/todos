@@ -49,7 +49,7 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 	return (
 		<div>
 			<div className='title-container'>
-				<h1 className='title'>{name ? name : 'Todo list'}</h1>
+				<h1 className='title'>{name ? name : 'Pick a day'}</h1>
 			</div>
 			<div className={`${message.show ? 'message-container show-message' : 'message-container'}`}>
 				<p>{message.text}</p>
