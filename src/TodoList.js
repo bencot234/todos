@@ -40,6 +40,11 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 		setDays(newDays);
 	}, [todos]);
 
+	const deleteItem = (id) => {
+		let newTodos = todos.filter(todos => todos.id !== id);
+		setTodos(newTodos);
+	}
+
 	return (
 		<>
 			<div className='title-container'>
@@ -60,7 +65,7 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 
 				</div>
 			</form>
-			<List list={todos}/>
+			<List list={todos} deleteItem={deleteItem}/>
 		</>
 	);
 }
