@@ -4,10 +4,12 @@ import { useState } from 'react';
 
 function App() {
 	const [listItem, setListItem] = useState('');
+	const [list, setList] = useState([]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(`adding a ${listItem}`)
+		let id = new Date().getTime().toString();
+		setList([...list, {name: listItem, id: id}]);
 	}
 
 	return (
@@ -21,7 +23,7 @@ function App() {
 				/>
 				<button type="submit">Add</button>
 			</form>
-			<List/>
+			<List list={list}/>
 		</>
 	);
 }
