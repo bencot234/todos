@@ -29,15 +29,17 @@ function App() {
 	}, [days])
 
 	return (
-		<>
-			{days.map(day => {
-				return <button 
-					key={day.name} 
-					onClick={() => {setTodos(day.todos); setName(day.name)}}
-				>
-					{day.name}
-				</button>
-			})}
+		<div className='container'>
+			<div className='days-container'>
+				{days.map(day => {
+					return <button 
+						key={day.name} 
+						onClick={() => {setTodos(day.todos); setName(day.name)}}
+					>
+						{day.name}
+					</button>
+				})}
+			</div>
 			<TodoList 
 				todos={todos} 
 				setTodos={setTodos} 
@@ -45,7 +47,7 @@ function App() {
 				days={days} 
 				name={name}
 			/>
-		</>
+		</div>
 	);
 }
 

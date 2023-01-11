@@ -46,7 +46,7 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 	}
 
 	return (
-		<>
+		<div>
 			<div className='title-container'>
 				<h1 className='title'>{name ? name : 'Todo list'}</h1>
 			</div>
@@ -66,7 +66,7 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 				</div>
 			</form>
 			<List list={todos} deleteItem={deleteItem}/>
-		</>
+		</div>
 	);
 }
 
