@@ -2,22 +2,31 @@ import './App.css';
 import List from './List';
 import { useState, useEffect } from 'react';
 
-const TodoList = ({todos, setTodos, setDays, days, name, setName}) => {
+const TodoList = ({todos, setTodos, setDays, days, name}) => {
     const [listItem, setListItem] = useState('');
 	const [message, setMessage] = useState({text: '', show: false});
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (listItem === '') {
-			setMessage({text: 'please enter an item', show: true});
-			setTimeout(() => {
-				setMessage({text: '', show: false});
-			}, 3000);
+			showMessage('enter an item', true);
+			return;
+		}
+		if (!name) {
+			showMessage('choose a day', true);
 			return;
 		}
 		let id = new Date().getTime().toString();
 		setTodos([...todos, {name: listItem, id: id}]);
 		setListItem('');
+	}
+
+	const showMessage = (text = '', show = false) => {
+		setMessage({text, show});
+		let timeout = setTimeout(() => {
+			setMessage({text: '', show: false});
+		}, 3000);
+		return clearTimeout(() => timeout);
 	}
 
 	useEffect(() => {
@@ -34,7 +43,7 @@ const TodoList = ({todos, setTodos, setDays, days, name, setName}) => {
 	return (
 		<>
 			<div className='title-container'>
-				<h1 className='title'>{name}</h1>
+				<h1 className='title'>{name ? name : 'Todo list'}</h1>
 			</div>
 			<div className={`${message.show ? 'message-container show-message' : 'message-container'}`}>
 				<p>{message.text}</p>
@@ -45,6 +54,7 @@ const TodoList = ({todos, setTodos, setDays, days, name, setName}) => {
 						type="text" 
 						value={listItem} 
 						onChange={(e) => setListItem(e.target.value)}
+						disabled={!name}
 					/>
 					<button type="submit">Add</button>
 
