@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+
+.title-container {
+  text-align: center;
+  border-radius: 10px;
+  background-color: #e0a73d;
+}
+
+.title {
+  padding: 20px;
+  font-weight: bold;
+}
+
+input, button, .list-item {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: larger;
+}
+
+button {
+  background-color: #637eaa;
+  color: white;
+  border-color: transparent;
+  text-transform: capitalize;
+  cursor: pointer;
+  margin: 10px;
+}
+
+form {
+  text-align:center;
+}
+
+.list-item {
+  text-align: center;
+  width: 16rem;
+  background-color: #7eaa63;
+  color: white;
+}
+
+.list-container {
+  margin: auto;
+  margin-top: 4rem;
+  width: 20rem;
+}

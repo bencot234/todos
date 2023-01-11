@@ -15,14 +15,19 @@ function App() {
 
 	return (
 		<>
-			<h1>Todo List</h1>
+			<div className='title-container'>
+				<h1 className='title'>Todo List</h1>
+			</div>
 			<form onSubmit={handleSubmit}>
-				<input 
-					type="text" 
-					value={listItem} 
-					onChange={(e) => setListItem(e.target.value)}
-				/>
-				<button type="submit">Add</button>
+				<div className="input-container">
+					<input 
+						type="text" 
+						value={listItem} 
+						onChange={(e) => setListItem(e.target.value)}
+					/>
+					<button type="submit">Add</button>
+
+				</div>
 			</form>
 			<List list={list}/>
 		</>

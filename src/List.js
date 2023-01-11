@@ -1,10 +1,10 @@
 const List = ({list}) => {
-    return <>
+    return <div className="list-container">
         {list.map((item) => {
             const {name, id} = item;
-            return <p key={id}>{name}</p>
+            return <p className='list-item' key={id}>{name}</p>
         })}
-    </>
+    </div>
 }
 
 export default List;
