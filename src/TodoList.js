@@ -1,6 +1,6 @@
 import './App.css';
 import List from './List';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const TodoList = ({todos, setTodos, setDays, days, name}) => {
     const [listItem, setListItem] = useState('');
@@ -40,6 +40,10 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 		});
 		setDays(newDays);
 	}
+
+	useEffect(() => {
+		changeDays();
+	}, [todos])
 
 	const deleteItem = (id) => {
 		let newTodos = todos.filter(todos => todos.id !== id);
