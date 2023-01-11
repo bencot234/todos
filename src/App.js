@@ -21,21 +21,30 @@ const getLocalStorage = () => {
 function App() {
 
 	const [days, setDays] = useState(getLocalStorage());
-
-	
-
 	const [todos, setTodos] = useState([]);
 	const [name, setName] = useState('');
 
 	useEffect(() => {
 		localStorage.setItem('days', JSON.stringify(days));
 	}, [days])
+
 	return (
 		<>
 			{days.map(day => {
-				return <button key={day.name} onClick={() => {setTodos(day.todos); setName(day.name)}}>{day.name}</button>
+				return <button 
+					key={day.name} 
+					onClick={() => {setTodos(day.todos); setName(day.name)}}
+				>
+					{day.name}
+				</button>
 			})}
-			<TodoList todos={todos} setTodos={setTodos} setDays={setDays} days={days} name={name}/>
+			<TodoList 
+				todos={todos} 
+				setTodos={setTodos} 
+				setDays={setDays} 
+				days={days} 
+				name={name}
+			/>
 		</>
 	);
 }
