@@ -29,20 +29,6 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 		return clearTimeout(() => timeout);
 	}
 
-	useEffect(() => {
-		const changeDays = () => {
-			let newDays = days.map((day) => {
-				if (day.name === name) {
-					day.todos = todos;
-					return day;
-				}
-				return day;
-			});
-			setDays(newDays);
-		}
-		changeDays();
-	}, [todos]);
-
 	const deleteItem = (id) => {
 		let newTodos = todos.filter(todos => todos.id !== id);
 		setTodos(newTodos);

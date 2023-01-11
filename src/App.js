@@ -26,7 +26,18 @@ function App() {
 
 	useEffect(() => {
 		localStorage.setItem('days', JSON.stringify(days));
-	}, [days])
+	}, [days]);
+
+	useEffect(() => {
+		let newDays = days.map((day) => {
+			if (day.name === name) {
+				day.todos = todos;
+				return day;
+			}
+			return day;
+		});
+		setDays(newDays);
+	}, [todos]);
 
 	return (
 		<div className='container'>
