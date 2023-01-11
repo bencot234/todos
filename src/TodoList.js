@@ -28,24 +28,18 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 		}, 3000);
 		return clearTimeout(() => timeout);
 	}
-
+	/* eslint-disable */
 	useEffect(() => {
-		const changeDays = () => {
-			// eslint-disable-next-line react-hooks/exhaustive-deps
-			let newDays = days.map((day) => {
-				if (day.name === name) {
-					// eslint-disable-next-line react-hooks/exhaustive-deps
-					day.todos = todos;
-					return day;
-				}
+		let newDays = days.map((day) => {
+			if (day.name === name) {
+				day.todos = todos;
 				return day;
-			});
-			// eslint-disable-next-line react-hooks/exhaustive-deps
-			setDays(newDays);
-		}
-		
-		changeDays();
+			}
+			return day;
+		});
+		setDays(newDays);
 	}, [todos])
+	/* eslint-enable */
 
 	const deleteItem = (id) => {
 		let newTodos = todos.filter(todos => todos.id !== id);
