@@ -15,8 +15,10 @@ input, button, .list-item, .message-container p {
   font-size: larger;
 }
 
-input {
-  width: 17rem;
+@media (min-width: 600px) {
+  input {
+    width: 17rem;
+  }
 }
 
 button {
@@ -43,8 +45,17 @@ form {
   grid-template-columns: 2fr 1fr;
 }
 
-.list-container, .message-container {
-  width: 24rem;
+.list-container,
+.message-container {
+  width: 18rem;
+  margin: auto;
+}
+
+@media (min-width: 600px) {
+  .list-container, .message-container {
+    width: 24rem;
+    margin: none;
+  }
 }
 
 .message-container {
@@ -68,13 +79,19 @@ form {
   margin-top: 20px;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
+@media (min-width: 600px) {
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  .days-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5rem;
+    text-align: justify;
+  }
 }
 
 .days-container {
-  display: flex;
-  flex-direction: column;
-  margin-right: 5rem;
+  text-align: center;
 }
