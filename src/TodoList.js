@@ -19,6 +19,7 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 		let id = new Date().getTime().toString();
 		setTodos([...todos, {name: listItem, id: id}]);
 		setListItem('');
+		changeDays();
 	}
 
 	const showMessage = (text = '', show = false) => {
@@ -27,6 +28,17 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 			setMessage({text: '', show: false});
 		}, 3000);
 		return clearTimeout(() => timeout);
+	}
+
+	const changeDays = () => {
+		let newDays = days.map((day) => {
+			if (day.name === name) {
+				day.todos = todos;
+				return day;
+			}
+			return day;
+		});
+		setDays(newDays);
 	}
 
 	const deleteItem = (id) => {
