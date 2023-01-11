@@ -10,6 +10,7 @@ function App() {
 		e.preventDefault();
 		let id = new Date().getTime().toString();
 		setList([...list, {name: listItem, id: id}]);
+		setListItem('');
 	}
 
 	return (
