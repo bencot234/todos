@@ -31,16 +31,19 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 
 	useEffect(() => {
 		const changeDays = () => {
+			// eslint-disable-next-line react-hooks/exhaustive-deps
 			let newDays = days.map((day) => {
 				if (day.name === name) {
+					// eslint-disable-next-line react-hooks/exhaustive-deps
 					day.todos = todos;
 					return day;
 				}
 				return day;
 			});
+			// eslint-disable-next-line react-hooks/exhaustive-deps
 			setDays(newDays);
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+		
 		changeDays();
 	}, [todos])
 
