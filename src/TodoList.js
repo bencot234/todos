@@ -1,10 +1,9 @@
 import './App.css';
 import List from './List';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const TodoList = () => {
+const TodoList = ({todos, setTodos, setDays, days, name, setName}) => {
     const [listItem, setListItem] = useState('');
-	const [list, setList] = useState([]);
 	const [message, setMessage] = useState({text: '', show: false});
 
 	const handleSubmit = (e) => {
@@ -17,14 +16,25 @@ const TodoList = () => {
 			return;
 		}
 		let id = new Date().getTime().toString();
-		setList([...list, {name: listItem, id: id}]);
+		setTodos([...todos, {name: listItem, id: id}]);
 		setListItem('');
 	}
+
+	useEffect(() => {
+		let newDays = days.map((day) => {
+			if (day.name === name) {
+				day.todos = todos;
+				return day;
+			}
+			return day;
+		});
+		setDays(newDays);
+	}, [todos]);
 
 	return (
 		<>
 			<div className='title-container'>
-				<h1 className='title'>Todo List</h1>
+				<h1 className='title'>{name}</h1>
 			</div>
 			<div className={`${message.show ? 'message-container show-message' : 'message-container'}`}>
 				<p>{message.text}</p>
@@ -40,7 +50,7 @@ const TodoList = () => {
 
 				</div>
 			</form>
-			<List list={list}/>
+			<List list={todos}/>
 		</>
 	);
 }
