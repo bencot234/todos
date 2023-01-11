@@ -8,12 +8,12 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (listItem === '') {
-			showMessage('enter an item', true);
+		if (!name && listItem === '') {
+			showMessage('pick a day', true);
 			return;
 		}
-		if (!name) {
-			showMessage('choose a day', true);
+		if (listItem === '') {
+			showMessage('enter an item', true);
 			return;
 		}
 		let id = new Date().getTime().toString();
@@ -30,14 +30,17 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 	}
 
 	useEffect(() => {
-		let newDays = days.map((day) => {
-			if (day.name === name) {
-				day.todos = todos;
+		const changeDays = () => {
+			let newDays = days.map((day) => {
+				if (day.name === name) {
+					day.todos = todos;
+					return day;
+				}
 				return day;
-			}
-			return day;
-		});
-		setDays(newDays);
+			});
+			setDays(newDays);
+		}
+		changeDays();
 	}, [todos]);
 
 	const deleteItem = (id) => {

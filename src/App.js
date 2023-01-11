@@ -10,7 +10,7 @@ const getLocalStorage = () => {
 	else return [
 		{name: 'Monday', todos: []},
 		{name: 'Tuesday', todos: []},
-		{name: 'Wednsday', todos: []},
+		{name: 'Wednesday', todos: []},
 		{name: 'Thursday', todos: []},
 		{name: 'Friday', todos: []},
 		{name: 'Saturday', todos: []},
