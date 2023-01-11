@@ -40,6 +40,7 @@ const TodoList = ({todos, setTodos, setDays, days, name}) => {
 			});
 			setDays(newDays);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		changeDays();
 	}, [todos])
 
